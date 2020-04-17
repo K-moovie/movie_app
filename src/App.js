@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+/*
 const foodILike =[
   {
     id: 1,
@@ -21,6 +22,7 @@ const foodILike =[
     rating: 6
   }
 ]
+*/
 
 function Food({name, picture, rating}) { // props 인자는 any
   //console.log({name});
@@ -62,10 +64,16 @@ class App extends React.Component {
   // JavaScript Code
   add = () => {
     console.log("add");
+    this.setState(current => ({count: current.count + 1}));
+    // !! setState 호출 시 react는 state를 refresh하고 render function을 호출한다.
+    // this.state.count + 1d은 추천하지 않음 (의존성 문제)
+
   };
+
 
   minus = () => {
     console.log("minus");
+    this.setState(current => ({count: current.count - 1}));
   };
 
   render() { 
